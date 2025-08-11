@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mostra(frase) {
+            document.write(frase);
+        }
+
+        var novamente = true;
+        var valor = 0;
+        var fbf = 0;
+        var sc = 0;
+        var lb = 0;
+        var pc = 0;
+        var sg = 0;
+        var mc = 0;
+        var ha = 0;
+
+        while (novamente == true) {
+            var pedido = parseInt(prompt("Nosso cardápio de hoje:\n\n1. Frango com Batata Frita - R$ 25.00\n2. Strogonoff de Carne - R$ 30.00\n3. Lasanha à Bolonhesa - R$ 28.00\n4. Pizza de Calabresa - R$ 40.00\n5. Salmão Grelhado - R$ 45.00\n6. Macarrão à Carbonara - R$ 22.00\n7. Hambúrguer Artesanal - R$ 35.00"))
+            var quantidade = parseInt(prompt("Quanto desejaria pedir?"))
+
+            switch (pedido) {
+                case 1:
+                    valor += 25 * quantidade;
+                    fbf+=quantidade;
+                    break;
+                case 2:
+                    valor += 30 * quantidade;
+                    sc+=quantidade;
+                    break;
+                case 3:
+                    valor += 28 * quantidade;
+                    lb+=quantidade;
+                    break;
+                case 4:
+                    valor += 40 * quantidade;
+                    pc+=quantidade;
+                    break;
+                case 5:
+                    valor += 45 * quantidade;
+                    sg+=quantidade;
+                    break;
+                case 6:
+                    valor += 22 * quantidade;
+                    mc+=quantidade;
+                    break;
+                case 7:
+                    valor += 35 * quantidade;
+                    ha+=quantidade;
+                    break;
+            }
+
+
+            novamente = confirm("Deseja pedir mais alguma coisa?\n(click em OK para pedir novamente ou cancelar para fechar o pedido)");
+
+        };
+
+        mostra("o seu pedido foi: R$" + valor + "<br>");
+        mostra("Seu pedido foi: <br>" + fbf + "Frango com bata frita.")
+        mostra("<br>"+ sc + " Strgnoff de carne.")
+        mostra("<br>"+ lb + " Lasanha a bolonhesa.")
+        mostra("<br>"+ pc + " Pizza Calabresa.")
+        mostra("<br>"+ sg + " Salmão grelhado.")
+        mostra("<br>"+ mc + " Macarrão a Carbonara.")
+        mostra("<br>"+ ha + " Hamburguer Artesanal.")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input /><br>
+    <button onclick="verifica()">Compare comeu o segredo</button>
+
+    <script>
+        //função que vai sortear os numeros
+        function sorteia(){
+            return Math.round(Math.random() * 10 )
+        }
+
+        //condição para definir os numeros diferente de zero, os dois "==" depois da exclamação é para ser TOTALMENTE especifico ex: 0.56
+        if (numeroAleatorio !== 0){
+        //função para executar o codigo, na linha abaixo a funçao tera o parametro que vc definira com o valor que quiser
+        function sorteiaNumeros(quantidade){
+            //aqui o codigo se iniciara com a variavel recebendo a array com tamanho = 0, se o codigo todo executar o tamanho vai se alterar, dependendo do valor da variavel "numero".
+            //que vai estar condicionada pelo laço de repetição do while
+            let segredos = [];
+
+            let numero = 1;
+
+            //ena
+            while(numero <= quantidade){
+                let numeroAleatorio = sorteia();
+                let achou = false;
+            
+            for ( posicao = 0; posicao < segredos.length; posicao++){
+                if(segredos[posicao] == numeroAleatorio){
+                    achou = true;
+                    break;
+                }
+            }
+                if (achou == false){
+                segredos.push(numeroAleatorio);
+                numero++;
+                }
+            }
+
+            return segredos;
+        }
+    }
+        let segredos = sorteiaNumeros(5);
+        console.log(segredos)
+
+        // let segredo1 = 5;
+        // let segredo2 = 6;
+        // let segredo3 = 7;
+         
+        // let segredo = Math.round(Math.random()*10+1);
+
+        // let segredos = [];
+        // segredos.push(Math.round(Math.random()+ 10));
+        // segredos.push(Math.round(Math.random()+ 10));
+        // segredos.push(Math.round(Math.random()+ 10));
+        // segredos.push(Math.round(Math.random()+ 10));
+        // segredos.push(Math.round(Math.random()+ 10));
+
+        // console.log(segredos);
+
+        let input = document.querySelector("input")
+        input.focus();
+
+        function verifica(){
+
+        let achou = false;
+
+        for (let posicao = 0; posicao < segredos.length; posicao++)
+
+            if (input.value == segredos[posicao]) {
+            alert("voce ACERTOU!!!");
+            achou = true;
+            break;
+        }
+       if (achou == false) {
+          alert("Voce errou")
+       }
+        input.value = "";
+        input.focus();
+        }
+
+        var button = document.querySelector("button")
+       
+    </script>
+</body>
+
+</html>

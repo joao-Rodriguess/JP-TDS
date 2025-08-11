@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pulaLinha () {
+            document.write("<br>")
+        };
+
+        function mostra (frase) {
+            document.write(frase);
+        }
+
+        function calculaPreco (preco, desconto) {
+            return preco-((desconto*preco)/100)
+        }
+
+        let nomeProduto = prompt("digite o nome do produto")
+        let precoProduto = prompt("digite o valor do produto")
+        let descontoProduto = prompt("digite o valor do desconto")
+
+        let vldescontado = calculaPreco(precoProduto, descontoProduto);
+
+        mostra("O produto " +nomeProduto+ ", custa cerca de R$ " + precoProduto + ". <br> O valor de desconto é "+ descontoProduto + "% <br> O valor a pagar é: R$" + vldescontado.toFixed(2))
+    </script>
+</body>
+</html>

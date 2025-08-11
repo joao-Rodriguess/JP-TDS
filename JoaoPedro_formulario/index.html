@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Exemplos de Formulario em HTML</h1>
+    <h2>Exemplos 01</h2>
+    <input type="text" name="nome" placeholder="Nome">
+    <input type="email" name="email" placeholder="Email">
+    <input type="date" name="data">
+    <input type="tel" name="celular" placeholder="Celular">
+    <input type="password" name="senha" placeholder="Senha">
+    <input type="submit" name="cadastrar" value="cadastrar">
+    <h2>Exemplos 02</h2>
+    <textarea style="width: 325px; height: 100px;" placeholder="Texto Livre"></textarea>
+    <h2>Exemplo 3</h2>
+    <fieldset>
+        <legend>Formulario</legend>
+        <form>
+            Nome: <input type="text" name="nome"><br><br>
+            Sexo: <input type="radio" name="masculino">Masculino
+                  <input type="radio" name="masculino">Feminino<br><br>
+            Pais: <select>
+                <option>Escolha uma opção</option>
+                <option>Inglaterra</option>
+                <option>Brasil</option>
+                <option>Canada</option>
+            </select><br><br>
+            Mensagem: 
+            <br><textarea name="mensagem" style="width: 200px; height: 100px;"></textarea><br><br>
+            <input type="checkbox" name="assinar">Assinar Newsletter?<br><br>
+            <input type="submit" name="enviar" value="Enviar">            
+        </form>
+    </fieldset>
+    <h2>Exemplo 04</h2>
+    <form method="get" action="https://www.google.com/search">
+        <input type="text" name="q"> <input type="submit" value="Clique para pesquisar">
+    </form>
+    
+</body>
+</html>

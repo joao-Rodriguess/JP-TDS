@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Conta de Luz</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('');
+    background-size: cover;            /* cobre toda a tela */
+    background-position: center;       /* centraliza a imagem */
+    background-repeat: no-repeat;      /* não repete a imagem */
+    background-attachment: fixed;      /* fixa o fundo na rolagem */
+            background-color: #f3f4f6;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        header h1 {
+            color: #ffc107;
+            font-size: 28px;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px #333;
+        }
+
+        form {
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        fieldset {
+            border: 2px solid #0d6efd;
+            border-radius: 10px;
+            padding: 30px;
+            display: grid;
+            gap: 20px;
+        }
+
+        legend {
+            font-size: 22px;
+            font-weight: bold;
+            color: #0d6efd;
+            padding: 0 10px;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        button {
+            align-self: flex-start;
+            background-color: #ffc107;
+            border: none;
+            font-size: 16px;
+            padding: 10px 25px;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e0a800;
+        }
+
+        #resultado {
+            margin-top: 30px;
+            padding: 30px;
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+       @keyframes eletrico {
+    0%, 100% {
+        text-shadow: 
+            0 0 5px #ffc107, 
+            0 0 10px #ffeb3b, 
+            0 0 15px #fff176;
+        color: #ffc107;
+        transform: scale(1);
+    }
+    25% {
+        text-shadow: 
+            0 0 15px #fff95b, 
+            0 0 30px #ffee58, 
+            0 0 40px #ffff00;
+        color: #fffacd;
+        transform: scale(1.02) rotate(-1deg);
+    }
+    50% {
+        text-shadow: none;
+        color: #999;
+        transform: scale(0.98) rotate(1deg);
+    }
+    75% {
+        text-shadow: 
+            0 0 10px #ffd700, 
+            0 0 20px #ffff66;
+        color: #ffe600;
+        transform: scale(1.01);
+    }
+}
+
+header h1:hover{
+    animation: eletrico 1.5s infinite;
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px #ffc107) drop-shadow(0 0 10px #ffeb3b);
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 15px #ffea00) drop-shadow(0 0 25px #fff176);
+        transform: scale(1.05);
+    }
+}
+
+header img {
+    animation: neonPulse 2s infinite alternate;
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1) rotate(-2deg);
+    filter: drop-shadow(0 0 20px #fff95b) drop-shadow(0 0 30px #ffee58);
+}
+    </style>
+</head>
+<body>
+    <!--https://www.youtube.com/embed/zQGM25GScXI?si=pqUu6YQLEYixnHzX-->
+
+
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/10939/10939368.png" alt="Ícone conta de luz">
+        <h1>Cadastro de Conta de Luz</h1>
+    </header>
+
+    <form id="formulario">
+        <fieldset>
+            <legend>Informações da Conta de Luz</legend>
+    
+            <label>Número da Conta Contrato:
+                <input type="text" id="conta" required />
+            </label>
+    
+            <label>Unidade Consumidora:
+                <input type="text" id="unidade" required />
+            </label>
+    
+            <label>Leitura Anterior (kWh):
+                <input type="number" id="leituraAnterior" required />
+            </label>
+    
+            <label>Leitura Atual (kWh):
+                <input type="number" id="leituraAtual" required />
+            </label>
+    
+            <label>Valor da Energia (R$):
+                <input type="number" step="0.01" id="valorEnergia" required />
+            </label>
+    
+            <label>Tarifa de Iluminação Pública (R$):
+                <input type="number" step="0.01" id="tarifaIluminacao" required />
+            </label>
+    
+            <label>Data de Emissão:
+                <input type="date" id="dataEmissao" required />
+            </label>
+    
+            <label>Data de Vencimento:
+                <input type="date" id="dataVencimento" required />
+            </label>
+    
+            <label>Status da Ligação:
+                <select id="statusLigacao">
+                    <option value="Ligado">Ligado</option>
+                    <option value="Desligado">Desligado</option>
+                </select>
+            </label>
+    
+            <label>Forma de Pagamento:
+                <select id="formaPagamento">
+                    <option value="Cartão de Crédito">Cartão de crédito</option>
+                    <option value="Cartão de Débito">Cartão de débito</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Boleto">Boleto</option>
+                </select>
+            </label>
+    
+            <label>Categoria do Imóvel:
+                <select id="categoriaImovel">
+                    <option value="Residencial">Residencial</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Público">Público</option>
+                    <option value="Industrial">Industrial</option>
+                </select>
+            </label>
+    
+            <button type="submit" id="enviar">Enviar</button>
+        </fieldset>
+    </form>
+    
+
+    <div id="resultado"></div>
+
+    <script>
+var maxCadastros = 0;
+alert(maxCadastros += prompt("Quantos registros?"));
+let cadastros = [];
+
+document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (cadastros.length >= maxCadastros) {
+        alert("Limite de cadastros atingido!");
+        return;
+    }
+
+    const conta = document.getElementById("conta").value;
+    const unidade = document.getElementById("unidade").value;
+    const leituraAnterior = parseInt(document.getElementById("leituraAnterior").value);
+    const leituraAtual = parseInt(document.getElementById("leituraAtual").value);
+    const consumo = leituraAtual - leituraAnterior;
+    const valorEnergia = parseFloat(document.getElementById("valorEnergia").value);
+    const tarifaIluminacao = parseFloat(document.getElementById("tarifaIluminacao").value);
+    const dataEmissao = document.getElementById("dataEmissao").value;
+    const dataVencimento = document.getElementById("dataVencimento").value;
+    const statusLigacao = document.getElementById("statusLigacao").value;
+    const formaPagamento = document.getElementById("formaPagamento").value;
+    const categoriaImovel = document.getElementById("categoriaImovel").value;
+
+    const taxaFixa = 10.00; // valor fixo da taxa
+    const total = valorEnergia + tarifaIluminacao + taxaFixa;
+
+    cadastros.push({
+        conta,
+        unidade,
+        leituraAnterior,
+        leituraAtual,
+        consumo,
+        valorEnergia,
+        tarifaIluminacao,
+        dataEmissao,
+        dataVencimento,
+        statusLigacao,
+        formaPagamento,
+        categoriaImovel,
+        total
+    });
+
+    document.getElementById("formulario").reset();
+
+    let resultadoHTML = "<h2>Registros:</h2>";
+    cadastros.forEach((c, index) => {
+        resultadoHTML += `
+            <strong>Cadastro ${index + 1}:</strong><br>
+            Conta: ${c.conta}<br>
+            Unidade: ${c.unidade}<br>
+            Leitura: ${c.leituraAnterior} → ${c.leituraAtual} kWh<br>
+            Consumo: ${c.consumo} kWh<br>
+            Valor da Energia: R$ ${c.valorEnergia.toFixed(2)}<br>
+            Tarifa Iluminação: R$ ${c.tarifaIluminacao.toFixed(2)}<br>
+            Taxa Fixa: R$ ${taxaFixa.toFixed(2)}<br>
+            Total: R$ ${c.total.toFixed(2)}<br>
+            Emissão: ${c.dataEmissao}<br>
+            Vencimento: ${c.dataVencimento}<br>
+            Ligação: ${c.statusLigacao}<br>
+            Pagamento: ${c.formaPagamento}<br>
+            Imóvel: ${c.categoriaImovel}<br><br>
+        `;
+    });
+
+    document.getElementById("resultado").innerHTML = resultadoHTML;
+});
+
+    </script>
+
+</body>
+</html>

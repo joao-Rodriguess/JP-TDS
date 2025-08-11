@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+    </head>
+<body>
+    <h1>Página de Estudos</h1>
+
+    <form method="get" action="envio_dados.php">
+        <input type="text" name="nome" placeholder="Digite seu Nome aqui">
+        <input type="e-mail" name="email" placeholder="Digite seu e-mail">
+        <input type="submit" name="enviar" value="Enviar">
+    </form>
+
+    <form>
+        <input type="button" value="Clique Aqui" onclick="msg()">
+    </form>
+
+    <script>
+        function msg(){
+            alert('Você clicou no botão!');
+        }
+    </script>
+
+    <form>
+        <input type="checkbox" name="veiculo1" value="bicicleta">Eu tenho uma bicicleta<br>
+        <input type="checkbox" name="veiculo2" value="carro">Eu tenho um carro<br>
+        <input type="checkbox" name="veiculo3" value="moto">Eu tenho uma moto
+    </form>
+
+    <form>
+        Selecione sua cor preferida: <input type="color" name="favcor" value="black">
+    </form>
+
+    <form>
+        Data de nascimento: <input type="date" name="nascimento">
+    </form>
+    <form>
+        Data de nascimento: <input type="datetime-local" name="bdaytime">
+    </form>
+
+    <form>
+        <input type="file" name="arquivos">
+    </form>
+    <br><br>
+
+    <!--Para permitir seleção de multiplos arquivos:-->
+
+    <form>
+        <input type="file" name="arquivos" multiple>
+    </form>
+
+    <form>
+        Quantidade (entre 1 e 5): <input type="number" name="quantidade" min="1" max="5">
+    </form>
+
+    <form>
+        <input type="password" name="senha" placeholder="Digite sua Senha">
+    </form>
+
+    <form>
+        <p>Qual sua idade?</p>
+        <input type="radio" name="idade" value="18_22">18 a 22<br>
+        <input type="radio" name="idade" value="23_30">23 a 30<br>
+        <input type="radio" name="idade" value="mais31"> acima de 31<br>
+    </form>
+
+    <form>
+        Defina seu nível de satisfação:<br>
+        pouco satisfeito
+        <input type="range" name="satisfacao" min="0" max="10">
+        muito satisfeito
+    </form>
+
+    <form>
+        <label for="email">Digite seu email</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="pin">Digite seu código</label>
+        <input type="text" id="pin" name="pin" maxlength="4"><br><br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form>
+        Pesquisar: <input type="search" name="q">
+    </form>
+
+    <form>
+        <input type="submit" value="Enviar Formulario">
+    </form>
+
+    <form>
+        Telefone: <input type="tel" name="usertel"><br>
+        Escolhe o horario: <input type="time" name="usr_horas">
+    </form>
+    <form>
+        <input type="url" name="isso">
+    </form>
+    <form>
+        <textarea name="texto" id=""></textarea>
+    </form>
+    <select name="lista" id="lista">
+        <option>-------------Selecione ai---------------</option>
+        <optio>Mcarrão</optio>
+        <option>Pizza</option>
+        <option>Nhoque</option>
+        <option>Canelones</option>
+    </select>
+    <fieldset>
+        <legend>Formulario</legend>
+    </fieldset>
+</body>
+</html>

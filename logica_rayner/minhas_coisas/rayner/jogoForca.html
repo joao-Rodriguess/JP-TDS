@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOgo complicado bixo</title>
+    <style>
+        .letra-input {
+    width: 30px;
+    height: 40px;
+    margin: 5px;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .hang_man {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .sla {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hang_man">
+        <div class="sla">
+            <form id="form">
+                <fieldset id="input">
+                    <!-- inputs serão adicionados aqui -->
+                </fieldset>
+                <br>
+                <button type="submit" id="enviar">Enviar</button>
+            </form>
+            <div id="resultado"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+function sorteio(lista_Palavras) {
+    const indiceAleatorio = Math.floor(Math.random() * lista_Palavras.length);
+    return lista_Palavras[indiceAleatorio];
+}
+
+const palavras = ["python", "php", "javascript"];
+const palavraSort = sorteio(palavras);
+
+console.log(palavraSort);
+
+// Separando a palavra em letras
+const separacao = palavraSort.split("");  // Corrigido para separar a palavra em letras
+
+for (let i = 0; i < separacao.length; i++) {
+    console.log(separacao[i]);  // Escreve cada letra da palavra sorteada diretamente
+
+  if(input.value == separacao[i]){
+    document.write("Você acertou "+(i+1)+"º: "+separacao[i]+"<br>" )
+  }
+ 
+    }  
+    
+     const inputDiv = document.getElementById("input");
+     // Criar inputs para cada letra
+        for (let i = 0; i < separacao.length; i++) {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.maxLength = 1;
+            input.classList.add("letra-input");
+            input.setAttribute("data-index", i);
+            input.required
+             // útil para identificar depois
+            inputDiv.appendChild(input);
+
+            
+        }
+
+        input.addEventListener("input", function () {
+                if (input.value.length === 1) {
+                    const nextInput = document.querySelector(`input[data-index="${i + 1}"]`);
+                    if (nextInput) {
+                        nextInput.focus();
+                    }
+                }
+            });
+     document.getElementById("form").addEventListener("submit", function(e) {
+            e.preventDefault(); // Impede o envio do form
+
+            const inputs = document.querySelectorAll(".letra-input");
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = "";
+
+            inputs.forEach((input, i) => {
+                const letraDigitada = input.value.toLowerCase();
+                if (letraDigitada === separacao[i]) {
+                    resultadoDiv.innerHTML += `Você acertou a letra ${separacao[i].toUpperCase()} na posição ${i + 1}<br>`;
+                } else {
+                    resultadoDiv.innerHTML += `Errou na posição ${i + 1}<br>`;
+                }
+
+            });
+        });
+
+        /* function sortearPalavra(listaDePalavras) {
+  
+  const indiceAleatorio = Math.floor(Math.random() * listaDePalavras.length);
+ 
+  return listaDePalavras[indiceAleatorio];
+}
+
+
+const palavras = ["lua", "sol", "estrela", "planeta"];
+const palavraSorteada = sortearPalavra(palavras);
+console.log(palavraSorteada);*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var letras = prompt("Digte uma frase")
+        document.write(letras)
+        document.write("<br>")
+        var processo = (letras.split(" "))
+        var caracteres = (letras.split(" "))
+
+
+
+        for (let i = 0; i <= processo.length - 1; i++) {
+            document.write("<br><br>" + (i + 1) + " =" + processo[i] + "<br>")
+
+
+            a = processo[i].split("")
+
+
+            for (let n = 0; n <= a.length - 1; n++) {
+                document.write((i + 1) + "." + (n + 1) + " =" + a[n] + "<br>")
+
+            }
+        }
+
+        document.write("<br><br>")
+
+        for (let j = 0; j <= caracteres.length-1; j++) {
+            document.write("[" + caracteres[j] + "] "+" {")
+
+            b = caracteres[j].split("");
+
+
+            for (let l = 0; (l) <= b.length-1 ; l++) {
+                
+                if (l == b.length-1) {
+                    console.log("japao")
+                    document.write(b[l])
+                    document.write("}")
+                } else {
+                    document.write(b[l])
+                    document.write(",")
+                    console.log("error"+b[l]+"-"+l+"-"+b.length)
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

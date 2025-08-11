@@ -1,0 +1,42 @@
+body{
+    background-image: url(../_img/capacete-ayrton-senna-senna.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+h1{
+    text-align: center;
+    text-shadow: red 1px 2px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: gold;
+    border: solid;
+    border-color: red;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.image{
+    border: 15px solid white;
+    width: 20%;
+    height: 20%;
+    
+}
+
+.image:hover{
+    box-shadow: 3px 3px red;
+    position: relative;
+    transition: linear 0.25;
+}
+
+.rotate1{
+    transform: rotate(5deg);
+}
+
+.rotate2{
+    transform: rotate(-5deg);
+}
+
+.image:hover{
+    transform: rotate(0deg) scale(1.5);
+}

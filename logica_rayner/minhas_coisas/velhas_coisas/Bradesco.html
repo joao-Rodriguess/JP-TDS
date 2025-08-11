@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>É SÉRIO MESMO CARA ~ GORDÃO SPACE TODAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+       body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('https://images7.alphacoders.com/110/1100122.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    background-color: #8000ff; /* cor roxa end */
+    color: #ffffff;
+    border: 4px solid #3f0066;
+    padding: 12px 20px;
+    margin: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 3px 3px #000;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #aa33ff;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #d4bfff;
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px #111;
+}
+
+table {
+    margin: 0 auto 20px;
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 95%;
+    max-width: 1000px;
+    background-color: rgba(50, 0, 80, 0.8);
+    border: 4px solid #aa33ff;
+    box-shadow: 0 0 12px #8000ff;
+}
+
+th, td {
+    padding: 12px 10px;
+    border: 2px solid #4c0070;
+    background-color: rgba(70, 0, 100, 0.6);
+    color: #e8d4ff;
+}
+
+thead {
+    background-color: #6600cc;
+    color: #ffffff;
+}
+
+#game {
+    margin-top: 20px;
+}
+
+#block {
+    width: 128px;
+    height: 128px;
+    background-size: cover;
+    margin: 20px auto;
+    cursor: pointer;
+    border: 4px solid #222;
+    box-shadow: 0 0 10px #aa33ff;
+    transition: transform 0.1s ease;
+}
+
+#block:active {
+    transform: scale(0.95);
+}
+
+    
+    </style>
+
+</head>
+
+<body>
+    <script>
+        var nome = "";
+        alert(nome += prompt("Qual o seu nome?"));
+
+        if (nome != "") {
+            var saldo = 0;
+            alert(saldo += parseInt(prompt("Quanto de saldo tem?")));
+
+            if (isNaN(saldo)) {
+                while (isNaN(saldo)) {
+                    alert("Burrão!!! valor nulo ou escrever caracteres de texto não pode");
+                    var confirma = "";
+                    alert(confirma += confirm("Você quer que o seu saldo seja 0?"));
+                    if (confirma == true) {
+                        saldo = 0;
+                        break;
+                    } else {
+                        saldo = parseInt(prompt("Digite corretamente o saldo:"));
+                    }
+                }
+            }
+
+            alert("Bem vindo ao BLODESCO.MOJANG " + nome);
+            alert("aqui vc VERA a tua conta");
+            alert("Teu saldo agora é de extamente: " +
+                new Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(saldo));
+
+        } else {
+            nome = "ANONIMO"
+            var saldo = 0;
+            alert(saldo += parseInt(prompt("Quanto de saldo tem?")));
+            if (isNaN(saldo)) {
+                saldo = 0;
+            }
+            alert("Bem vindo ao BRADESCO " + nome);
+            alert("aqui vc VERA a tua conta");
+            alert("Teu saldo agora é de extamente: " +
+                new Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(saldo));
+        }
+    </script>
+
+    <h1 style="color:#aa33ff;">Bem Vindo ao BLODESCO.mojang, <script>document.write(nome)</script></h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="6">Depósito</th>
+                <th colspan="6">Saques</th>
+                <th colspan="6">Data</th>
+            </tr>
+        </thead>
+        <tbody id="registro">
+        </tbody>
+    </table>
+
+    <div>
+        <button onclick="deposito()">Deposite</button>
+        <button onclick="saques()">Saque</button>
+        <button onclick="historico()">Histórico</button>
+        <button onclick="consulta()">Consultar Saldo</button>
+    </div>
+
+    <h1>Quebra de Blocos</h1>
+    <canvas id="gameCanvas" width="480" height="320"></canvas>
+    <script src="game.js"></script>
+
+   <!--<h2 style="color: #d4bfff; margin-top: 40px;">MiniGame: Quebrando Blocos</h2>
+<div id="game">
+    <div id="block" onclick="breakBlock()"></div>
+    <p style="color: #fff;">Blocos Quebrados: <span id="points">0</span></p>
+</div>
+<audio id="breakSound" src="https://www.myinstants.com/media/sounds/minecraft_break.mp3" preload="auto"></audio>-->
+
+    <script>
+        var depositar = 0;
+        var sacar = 0;
+        var data = new Date();
+        var formatado = data.toLocaleString();
+
+        function deposito() {
+            var depositov = 0;
+            alert(depositov += parseInt(prompt("Quanto você quer depositar?")));
+            if (isNaN(depositov)) {
+                depositov = 0;
+            }
+            depositar += depositov;
+            saldo += depositov;
+            alert("Teu saldo é exatamente: " +
+                new Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(saldo));
+        }
+
+        function saques() {
+            var saques = 0;
+            alert(saques += parseInt(prompt("Quanto você quer sacar?")));
+            if (isNaN(saques)) {
+                saques = 0;
+            }
+            if (saldo - saques < 0) {
+                alert("BURRÃO teu saldo n tem tudo isso para sacar");
+                return;
+            } else {
+                sacar += saques;
+                saldo -= saques;
+                alert("Teu saldo é exatamente: " +
+                    new Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(saldo));
+            }
+        }
+
+        function historico() {
+            var registro = document.getElementById("registro");
+            var tabela = `
+                <tr>
+                    <td colspan="6">${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(depositar)}</td>
+                    <td colspan="6">${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(sacar)}</td>
+                    <td colspan="6">${new Date().toLocaleString()}</td>
+                </tr>`;
+            registro.innerHTML += tabela;
+        }
+
+        function consulta() {
+            alert("O teu saldo no momento é: " +
+                new Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(saldo));
+        }
+
+
+
+       /* const blockEl = document.getElementById("block");
+const pointsEl = document.getElementById("points");
+const sound = document.getElementById("breakSound");
+
+const blocks = [
+  'https://i.imgur.com/OP7BwjX.png', // Exemplo de grama
+  'https://i.imgur.com/Kc9e2bJ.png', // Pedra
+  'https://i.imgur.com/Oe4GSlL.png', // Diamante
+];
+
+
+let score = 0;
+
+function randomBlock() {
+    const index = Math.floor(Math.random() * blocks.length);
+    return blocks[index];
+}
+
+function breakBlock() {
+    score++;
+    pointsEl.innerText = score;
+    blockEl.style.backgroundImage = `url(${randomBlock()})`;
+    sound.currentTime = 0;
+    sound.play();
+}
+
+// Inicializa com um bloco aleatório
+blockEl.style.backgroundImage = `url(${randomBlock()})`;
+*/
+    </script>
+</body>
+
+</html>

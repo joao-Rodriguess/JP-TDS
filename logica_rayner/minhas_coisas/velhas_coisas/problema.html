@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registros de livros</title>
+    <style>
+       table {
+    width: 80px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+}
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    font-size: 16px;
+}
+
+table th, table td {
+    font-family: 'Arial', sans-serif;
+}
+
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+    th, td {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        form {
+            display: inline-block;
+            max-width: 700px;
+            min-width: 500px;
+            box-sizing: border-box;
+            padding: 30px 25px;
+            background-color: white;
+            border-radius: 10%;
+            margin: 40px 0;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: white;
+            border: 2px solid red;
+            font-size: 17px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: red;
+        }
+
+        fieldset {
+            border: 5px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        legend {
+            font-family: Arial, sans-serif;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+   
+<body style="align-items: center; justify-content: center; ">
+
+<script>
+     var registros = parseFloat(parseInt(prompt("quantas registros quer fazer?")))
+</script>
+    <form id="livros">
+        <fieldset>
+        <label>Codigo do Livro<br>
+            <input type="number" id="codigo" >
+        </label><br><br>
+        <label>Autor<br>
+            <input type="text" id="autor">
+        </label><br><br> 
+        <label>Nome do livro<br>
+            <input type="text" id="nomeL">
+        </label><br><br> 
+        <label>Data em que foi lançado<br>
+            <input type="date" id="data">
+        </label> <br><br>
+        <label>Preço nos mercados e loja<br>
+            <input type="number" id="preco">
+        </label><br><br>
+        <label>Estoque<br>
+            <input type="text" id="armazenamento">
+        </label><br><br>
+        <label>Vendidos<br>
+            <input type="number" id="vendas">
+        </label><br>
+        <button type="submit" id="enviar">Envia</button>
+    </fieldset>
+    </form><br><br>
+
+<table id="tabelaLivros">
+    <thead>
+        <tr>
+            <th style="height: 20%;">Código</th>
+            <th>Autor</th>
+            <th>Nome do Livro</th>
+            <th>Data de Lançamento</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Vendidos</th>
+        </tr>
+    </thead>
+
+    <tbody id="tabelaCorpo">
+    </tbody>
+</table>
+   
+
+    <script>
+ document.getElementById("livros").addEventListener("submit",function(event) {
+        event.preventDefault()
+       
+
+       if(registros <= 0) {
+        alert("Numero de registros excedido")
+        document.getElementById("livros").reset();
+        return
+       }
+            var codigo = document.getElementById("codigo").value;
+            var autor = document.getElementById("autor").value;
+            var nomeL = document.getElementById("nomeL").value;
+            var dataL = document.getElementById("data").value;
+            var preco = document.getElementById("preco").value;
+            var armazenamento = document.getElementById("armazenamento").value;
+            var vendas = document.getElementById("vendas").value;  
+
+            var tabela = document.getElementById("tabelaCorpo")
+        
+            var novalinha = `  
+                   <tr>
+                    <td>${codigo}</td>
+                    <td>${autor}</td>
+                    <td>${nomeL}</td>
+                    <td>${dataL}</td>
+                    <td>${preco}</td>
+                    <td>${armazenamento}</td>
+                    <td>${vendas}</td>
+                    </tr>
+                    `;
+                
+
+                tabela.innerHTML += novalinha;
+                registros--;
+           if(registros > 0){
+        document.getElementById("livros").reset(); 
+       }
+                   
+        }
+    
+    )
+    </script>
+
+</body>
+</html>

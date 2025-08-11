@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pessoas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        form {
+            display: inline-block;
+            max-width: 700px;
+            min-width: 500px;
+            box-sizing: border-box;
+            padding: 30px 25px;
+            background-color: white;
+            border-radius: 10%;
+            margin: 40px 0;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: white;
+            border: 2px solid red;
+            font-size: 17px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: red;
+        }
+
+        fieldset {
+            border: 5px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        legend {
+            font-family: Arial, sans-serif;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="formulario">
+        <fieldset>
+            <legend>Cadastro de Pessoa</legend>
+
+            <label>Nome:
+                <input type="text" id="nome" required />
+            </label>
+
+            <label>Gênero:
+                <select id="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                </select>
+            </label>
+
+            <label>Nacionalidade:
+                <input type="text" id="nacionalidade" required />
+            </label>
+
+            <label>Data de Nascimento:
+                <input type="date" id="dataN" required />
+            </label>
+
+            <label>Data de Expedição:
+                <input type="date" id="dataE" required />
+            </label>
+
+            <label>Nome do Pai:
+                <input type="text" id="pai" />
+            </label>
+
+            <label>Nome da Mãe:
+                <input type="text" id="mae" />
+            </label>
+
+            <label>Estado:
+                <select id="estado">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="EX">Estrangeiro</option>
+                </select>
+            </label>
+
+            <label>RG:
+                <input type="text" id="rg" />
+            </label>
+
+            <label>CPF:
+                <input type="text" id="cpf" />
+            </label>
+
+            <button type="submit" id="enviar">Cadastrar</button>
+        </fieldset>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        let cadastros = []; // Array para armazenar os cadastros
+        let maxCadastros = 3; // Definir que são apenas 3 cadastros
+
+        document.getElementById("formulario").addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            if (cadastros.length >= maxCadastros) {
+                alert("Limite de 3 cadastros atingido!");
+                return;
+            }
+
+            let nome = document.getElementById("nome").value;
+            let genero = document.getElementById("genero").value;
+            let nacionalidade = document.getElementById("nacionalidade").value;
+            let dataN = document.getElementById("dataN").value;
+            let dataE = document.getElementById("dataE").value;
+            let pai = document.getElementById("pai").value;
+            let mae = document.getElementById("mae").value;
+            let estado = document.getElementById("estado").value;
+            let rg = document.getElementById("rg").value;
+            let cpf = document.getElementById("cpf").value;
+
+            // Calcular idade
+            let hoje = new Date();
+            let nascimento = new Date(dataN);
+            let idade = hoje.getFullYear() - nascimento.getFullYear();
+            let mes = hoje.getMonth() - nascimento.getMonth();
+            if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+                idade--;
+            }
+
+            let carteira = idade >= 18 ? "Pode tirar a carteira de motorista" : "Não pode tirar a carteira de motorista";
+
+            // Adicionar ao array de cadastros
+            cadastros.push({ nome, genero, nacionalidade, dataN, dataE, pai, mae, estado, rg, cpf, idade, carteira });
+
+            // Limpar os campos do formulário
+            document.getElementById("formulario").reset();
+
+            // Exibir os cadastros na tela
+            let resultadoHTML = "<h2>Registros Cadastrados:</h2>";
+            cadastros.forEach((pessoa, index) => {
+                resultadoHTML += `
+                    <strong>Pessoa ${index + 1}:</strong><br>
+                    Nome: ${pessoa.nome}<br>
+                    Pai: ${pessoa.pai || "Não informado"}<br>
+                    Mãe: ${pessoa.mae || "Não informado"}<br>
+                    Nacionalidade: ${pessoa.nacionalidade}<br>
+                    Gênero: ${pessoa.genero}<br>
+                    Estado: ${pessoa.estado}<br>
+                    RG: ${pessoa.rg || "Não informado"}<br>
+                    CPF: ${pessoa.cpf || "Não informado"}<br>
+                    Data de Nascimento: ${pessoa.dataN}<br>
+                    Idade: ${pessoa.idade} anos<br>
+                    Data de Expedição: ${pessoa.dataE}<br>
+                    ${pessoa.carteira}<br><br>
+                `;
+            });
+
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+        });
+    </script>
+
+</body>
+
+</html>

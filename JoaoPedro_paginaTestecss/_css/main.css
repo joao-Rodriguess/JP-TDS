@@ -1,0 +1,53 @@
+*{
+    text-align: center;
+}
+
+h1{
+     font-family: verdana;
+}
+.p{
+    background-color: black;
+ }
+
+ .c{
+    font-family: verdana;
+ }
+
+ .c2{
+    font-size: 13px;
+    font-family: verdana;
+ }
+
+ img{
+    margin: auto;
+    width: 215px;
+    height: 150px;
+ }
+
+ #especifico{
+    color: rgb(247, 170, 161);
+ }
+
+ #especifico2{
+    background-color: rgba(55, 197, 253, 0.459);
+    font-family: verdana;
+ }
+
+ #especifico3{
+    color: rgb(255, 36, 255);
+    font-family: 'Times New Roman', Times, serif;
+ }
+
+ #borda{
+    border: 3px solid darkolivegreen;
+    color: rgb(1, 170, 66);
+    font-family: verdana;
+ }
+
+ #rodape{
+    text-decoration: underline;
+    font-style: italic;
+    font-size: 40px;
+    color: orangered;
+    background-color: blueviolet;
+ }

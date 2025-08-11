@@ -1,0 +1,31 @@
+/* style.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEEB;
+}
+
+#gameArea {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+.penguin {
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}

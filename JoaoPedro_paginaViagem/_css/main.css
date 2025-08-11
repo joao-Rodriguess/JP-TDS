@@ -1,0 +1,74 @@
+*{
+    text-align: center;
+}
+
+img{
+    width: 200px;
+    height: 150px;
+        }
+
+tr,td{
+            border: 5px solid rgb(255, 251, 192);
+            background-color: rgb(202, 202, 202);
+        }
+
+#table{
+    border-radius: 15px;
+    border:5px solid rgb(255, 251, 192);
+    margin: auto;
+}
+
+th{
+    background-color: darkred;
+    border: 5px solid rgb(255, 251, 192);
+    color: white;
+}
+
+body{
+    background: url(../_imagens/japao.jpg) no-repeat fixed ;
+    background-size: cover;
+}
+
+h1{
+    color: rgb(253, 94, 94);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.p{
+    margin-top: 8px;
+    margin-right: 0px;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    border-top: 10px solid rgb(253, 94, 94);
+    border-bottom: 10px solid rgb(253, 94, 94);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#pega{
+     border:5px solid rgb(255, 251, 192);
+    margin: auto;
+    width: 1000px;
+}
+
+input{
+     background-color: rgb(202, 202, 202);
+     border: 0px;
+     text-align: left;
+     width: 900px;
+}
+
+#enviar{
+    margin-left: 850px;
+    border: 0px;
+    background-color: rgb(202, 202, 202);
+    color: red;
+}
+
+:hover{
+    color: darkred;
+    border: 0px;
+   
+    
+}
+    

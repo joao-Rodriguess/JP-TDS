@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo de Adivinhação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f0f0f0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Jogo de Adivinhação</h1>
+    <p>Tente adivinhar os valores de X e Y (entre 1 e 50).</p>
+    
+    <label for="inputX">Digite X:</label>
+    <input type="number" id="inputX" min="1" max="50" required>
+
+    <label for="inputY">Digite Y:</label>
+    <input type="number" id="inputY" min="1" max="50" required>
+
+    <button onclick="verificarTentativa()">Tentar</button>
+
+    <div class="result" id="mensagem"></div>
+    <div class="result" id="tentativasRestantes"></div>
+</div>
+
+<script>
+    const x = Math.floor(Math.random() * 50) + 1;
+    const y = Math.floor(Math.random() * 50) + 1;
+    let tentativas = 20;
+
+    console.log("Valores sorteados:", x, y); // Para debug
+
+    function verificarTentativa() {
+        const inputX = Number(document.getElementById("inputX").value);
+        const inputY = Number(document.getElementById("inputY").value);
+        const mensagem = document.getElementById("mensagem");
+        const tentativasRestantes = document.getElementById("tentativasRestantes");
+
+        if (tentativas <= 0) {
+            mensagem.innerHTML = "❌ Fim de jogo. Suas tentativas acabaram.";
+            return;
+        }
+
+        const diferencaX = Math.abs(x - inputX);
+        const diferencaY = Math.abs(y - inputY);
+
+        let mensagemX = "";
+        let mensagemY = "";
+
+        // X feedback
+        if (diferencaX === 0) {
+            mensagemX = "✅ Linha correta!";
+        } else if (diferencaX <= 5) {
+            mensagemX = "🟡 Linha está próxima.";
+        } else if (diferencaX <= 15) {
+            mensagemX = "🟠 Linha está chegando.";
+        } else {
+            mensagemX = "🔴 Linha está longe.";
+        }
+
+        // Y feedback
+        if (diferencaY === 0) {
+            mensagemY = "✅ Coluna correta!";
+        } else if (diferencaY <= 5) {
+            mensagemY = "🟡 Coluna está próxima.";
+        } else if (diferencaY <= 15) {
+            mensagemY = "🟠 Coluna está chegando.";
+        } else {
+            mensagemY = "🔴 Coluna está longe.";
+        }
+
+        if (diferencaX === 0 && diferencaY === 0) {
+            mensagem.innerHTML = `<span class="success">🎉 Parabéns! Você acertou os dois valores!</span>`;
+            tentativasRestantes.innerHTML = "";
+        } else {
+            tentativas--;
+            mensagem.innerHTML = `
+                <div>${mensagemX}</div>
+                <div>${mensagemY}</div>
+            `;
+            tentativasRestantes.innerHTML = `Tentativas restantes: <strong>${tentativas}</strong>`;
+
+            if (tentativas === 0) {
+                mensagem.innerHTML += `<br><span class="error">😢 Suas tentativas acabaram. Os valores eram X=${x} e Y=${y}.</span>`;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

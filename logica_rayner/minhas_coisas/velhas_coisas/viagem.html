@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- adicionar nome da pagina aqui: -->
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Planejamento de viagem</h1>
+    <!-- bom nome de variaveis, faceis de reconhecer -->
+    <label>Quantas pessoas vão para viagem?</label><br>
+    <input id="pessoas" type="number" name="pessoas"><br><br>
+
+    <label>Preço de Transporte por pessoa</label><br>
+    <input id="transporte" type="number" name="pessoas"><br><br>
+
+    <label>Hospedagem por pessoa</label><br>
+    <input id="hospedagem" type="number" name="pessoas"><br><br>
+
+    <label>Alimentação por pessoa</label><br>
+    <input id="alimentação" type="number" name="pessoas"><br><br>
+
+    <label>Passeios por pessoa</label><br>
+    <input id="passeios" type="number" name="pessoas"><br>
+
+    <!-- nao é necessario ter o esse type, já que o botão não está vinculado a um formulario -->
+    <button type="submit" onclick="calcular()">Calcular</button>
+
+    <script>
+        let pessoa = 0;
+        function calcular() {
+            // aqui percebo que vc está usando var e let, o ideal seria padronizar o uso de somente uma neste codigo
+            // uma boa pratica seria colocar um parseInt e parseFloats nos campos abaixos para garantir que os dados entraram de forma correta
+            let pessoa = parseInt(document.getElementById("pessoas").value);
+            var transporte = parseInt(document.getElementById("transporte").value);
+            var hospedagem = parseInt(document.getElementById("hospedagem").value);
+            var alimentação = parseInt(document.getElementById("alimentação").value);
+            var passeios = parseInt(document.getElementById("passeios").value);
+            // os comandos .log são otimos para verificar o codigo mas apoós a conclusão o ideal é comentar esses codigos para n pesar no codigo
+            // console.log(pessoa)
+            // console.log(transporte)
+            // console.log(hospedagem)
+            // console.log(alimentação)
+            // console.log(passeios)
+
+            if (pessoa <= 15) {
+                // os calculos abaixo foram feitos de forma um pouco confusa o ideal seria somar os variveis separadamente e depois só multiplicalas 1 vez os invez
+                // de multiplicalas 1 por uma pra somar depois
+
+                var totalidade = transporte+passeios+alimentação+hospedagem;
+                var TOTAL = totalidade * pessoa;
+
+                //o retorno do codigo esta errado a quantidade referente a cada pessoa que está representada pela var totalidade está retornando um valor muito maior que o 
+                //devido já que os valores de cada aspecto da viagem esta sendo multiplicado pelo total de pessoas(deveria ser referente a apenas uma)
+                document.write("O Preço no total que o grupo inteiro gastará ficara no total de: R$" + TOTAL + "<br> Por pessoa será de: R$" + totalidade)
+            } else {
+                //o codigo não considera a incersão de dados não validos como strings e floats 
+                alert("Você ultrapassou o numero maximo de pessoas");
+            }
+        }
+    </script>
+</body>
+
+</html>

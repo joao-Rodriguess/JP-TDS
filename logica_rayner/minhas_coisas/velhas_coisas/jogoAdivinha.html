@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pulaLinha(){
+            document.write("<br><br>")
+        }
+
+        function mostra(frase){
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function aleatorio(max){
+            return Math.floor(Math.random() * max + 1)
+        }
+
+        let tentativas = 1
+
+        maximo = 5
+        
+        while(tentativas <= 3){
+            let numberAleatorio = aleatorio(maximo);
+            let chute = parseInt(prompt("Digite seu chute!"));
+            tentativas++
+
+        if (chute == numberAleatorio){
+            mostra("Voce acertou Desgraçaaaaaa!!!"+ numberAleatorio);
+            break
+        }
+        else{
+            mostra("Voce errou o numero era " + numberAleatorio+" <br> O numero que vc escolheu foi: "+chute+"<br>");
+        }
+        }
+
+    </script>
+</body>
+</html>

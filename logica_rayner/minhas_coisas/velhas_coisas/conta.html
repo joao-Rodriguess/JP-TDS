@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html lang="pt-br">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Pessoas</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+                flex-direction: column;
+            }
+    
+            form {
+                display: inline-block;
+                max-width: 700px;
+                min-width: 500px;
+                box-sizing: border-box;
+                padding: 30px 25px;
+                background-color: white;
+                border-radius: 10%;
+                margin: 40px 0;
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+            }
+    
+            button {
+                margin-top: 20px;
+                background-color: white;
+                border: 2px solid red;
+                font-size: 17px;
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: red;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+    
+            button:hover {
+                color: white;
+                background-color: red;
+            }
+    
+            fieldset {
+                border: 5px solid black;
+                border-radius: 10px;
+                padding: 20px;
+            }
+    
+            legend {
+                font-family: Arial, sans-serif;
+                color: red;
+                font-size: 20px;
+                font-weight: bold;
+            }
+    
+            label {
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+    
+            input, select {
+                width: 100%;
+                padding: 8px;
+                margin-top: 5px;
+            }
+    
+            #resultado {
+                margin-top: 20px;
+                padding: 20px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    
+    <body>
+    
+        <form id="formulario">
+            <fieldset>
+                <legend>Conta de agua</legend>
+    
+                <label>Nome:
+                    <input type="text" id="nome" required />
+                </label>
+
+                
+                <label>Endereço:
+                    <input type="text" id="endereco" required />
+                </label>
+
+                
+                <label>Valor total a pagar:
+                    <input type="number" id="pagamento" required />
+                </label>
+    
+                
+                <label>Nº do hidrometro:
+                    <input type="number" id="hidrometro" required />
+                </label>
+
+                
+                <label>Nº da conta:
+                    <input type="number" id="conta" required />
+                </label>
+    
+                <label>Tarifa agua:
+                    <input type="number" id="taxaA" required />
+                </label>
+    
+                
+                <label>Tarifa de esgoto:
+                    <input type="number" id="taxaE" required />
+                </label>
+
+                <label>Data de Emissão:
+                    <input type="date" id="dataE" required />
+                </label>
+    
+                <label>Data de Vencimento:
+                    <input type="date" id="dataV" required />
+                </label>
+
+                <label>Identificação do ramal:
+                    <select id="ramal">
+                            <option value="on">ligado</option>
+                            <option value="off">desligado</option>
+                    </select>
+                </label>
+
+                <label>Forma de pagamento:
+                    <select id="tipo_pagamento">
+                            <option value="credito">Cartão de credito</option>
+                            <option value="debito">Cartão de debito</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="boleto">Boleto</option>
+
+                    </select>
+                </label>
+    
+                <label>Categoria de Imovel:
+                    <select id="imovel">
+                            <option value="casa">Casa</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="publico">Publico</option>
+                            <option value="comercial">Comercial</option>
+
+                    </select>
+                </label>
+    
+    
+                <button type="submit" id="enviar">Enviar</button>
+            </fieldset>
+        </form>
+    
+        <div id="resultado"></div>
+    
+        <script>
+            let cadastros = []; // Array para armazenar os cadastros
+            let maxCadastros = 3; // Definir que são apenas 3 cadastros
+    
+            document.getElementById("formulario").addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita o recarregamento da página
+    
+                if (cadastros.length >= maxCadastros) {
+                    alert("Limite de 3 cadastros atingido!");
+                    return;
+                }
+    
+                let nome = document.getElementById("nome").value;
+                let endereco = document.getElementById("endereco").value;
+                let pagamento = document.getElementById("pagamento").value;
+                let hidrometro = document.getElementById("hidrometro").value;
+                let conta = document.getElementById("conta").value;
+                let taxaA = document.getElementById("taxaA").value;
+                let taxaE = document.getElementById("taxaE").value;
+                let dataA = document.getElementById("dataE").value;
+                let dataV = document.getElementById("dataV").value;
+                let ramal = document.getElementById("ramal").value;
+                let tipo_pagamento = document.getElementById("tipo_pagamento").value;
+                let imovel = document.getElementById("imovel").value;
+    
+                // Calcular idade
+                let emissão = new Date(dataE);
+                let vencimento = new Date(dataV);
+                let anosP = emissão.getFullYear() - vencimento.getFullYear();
+                let mesesP = emissão.getMonth() - vencimento.getMonth();
+                if (mesesP < 0 || (mesesP === 0 && emissão.getDate() < vencimento.getDate())) {
+                    anosP--;
+                }
+    
+                let carteira = anosP >= 18 ? "Pode tirar a carteira de motorista" : "Não pode tirar a carteira de motorista";
+    
+                // Adicionar ao array de cadastros
+                cadastros.push({ nome, endereco, pagamento, hidrometro, conta, taxaA, taxaE, dataA, dataV, ramal, anosP, carteira,tipo_pagamento,imovel });
+    
+                // Limpar os campos do formulário
+                document.getElementById("formulario").reset();
+    
+                // Exibir os cadastros na tela
+                let resultadoHTML = "<h2>Registros:</h2>";
+                cadastros.forEach((pessoa, index) => {
+                    resultadoHTML += `
+                        <strong>Pessoa ${index + 1}:</strong><br>
+                        Nome: ${pessoa.nome}<br>
+                        Endereço: ${pessoa.endereco || "Não informado"}<br>
+                        Valor total a pagar: ${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(pessoa.pagamento) || "Não informado"}<br>
+                        Nº do hidrometro: ${pessoa.hidrometro}<br>
+                        Nº da conta: ${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(pessoa.conta)}<br>
+                        Tarifa agua: ${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(pessoa.taxaA)}<br>
+                        Tarifa de esgoto: ${Intl.NumberFormat("de-DE", { style: "currency", currency: "BRL" }).format(pessoa.taxaE) || "Não informado"}<br>
+                        Data de Emissão: ${pessoa.dataA || "Não informado"}<br>
+                        Data de Vencimento: ${pessoa.dataV}<br>
+                        Identificação do ramal: ${pessoa.ramal}<br>
+                        Forma de pagamento: ${pessoa.tipo_pagamento}<br>
+                        Categoria de Imovel: ${pessoa.imovel}<br>
+                    `;
+                });
+    
+                document.getElementById("resultado").innerHTML = resultadoHTML;
+            });
+        </script>
+    
+    </body>
+    
+    </html>
+</body>
+</html>

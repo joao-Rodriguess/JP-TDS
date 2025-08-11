@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    
+        <h2>IMC</h2>
+        <label>Digite o peso:</label><br>
+        <input type="number" id="x"><br><br>
+        <label>Digite a altura:</label><br>
+        <input type="number" id="y"><br><br>
+        <button type="button" onclick="calculaimc()">Enviar</button>
+        <p id="resultado"></p>
+    
+
+    <script>
+        function pulaLinha() {
+            document.write("<br><br>")
+        }
+
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+
+        function calculaimc(){
+            let peso = document.getElementById("x").value;
+            let altura = document.getElementById("y").value;
+            let imc = peso / (altura * altura);
+            document.getElementById("resultado").innerHTML = imc.toFixed(2)
+            //document.write("pontos");
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mostra(frase) {
+            document.write(frase);
+        }
+
+        function calculo_retangulo (base,altura) {
+            return base*altura
+        }
+
+        let alnumber = prompt("Digite quanto mede a altura")
+
+        let banumber = prompt("Digite quanto mede a base")
+
+        let area = calculo_retangulo(banumber,alnumber)
+
+        mostra("A area é: " + area.toFixed(2)+ "m^2")
+    </script>
+</body>
+</html>

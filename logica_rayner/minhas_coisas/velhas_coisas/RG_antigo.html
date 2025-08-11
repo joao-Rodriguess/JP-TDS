@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+
+        }
+
+        form {
+            display: inline-block;
+            max-width: 700px;
+            min-width: 500px;
+            box-sizing: border-box;
+            padding: 30px 25px;
+            background-color: white;
+            border-radius: 10%;
+            margin: 40px 0;
+            box-shadow: 20px 20px 10px
+        }
+
+        h1 {
+            color: red;
+            font-weight: 100;
+            letter-spacing: 0.01em;
+            margin-left: 15px;
+            margin-bottom: 35px;
+            text-transform: uppercase
+        }
+
+        button {
+            margin-top: 35px;
+            background-color: white;
+            border: 1px solid red;
+            line-height: 0;
+            font-size: 17px;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 20px 15px;
+            border-radius: 60px;
+            color: red;
+            font-weight: 100;
+            letter-spacing: 0.01em;
+            position: relative;
+            z-index: 1
+        }
+
+        button:hover,
+        input:focus {
+            color: white;
+            background-color: red;
+        }
+
+        .question {
+            position: relative;
+            padding: 10px 0
+        }
+
+        label {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* input:first-of-type{
+      padding-top: 0
+    } */
+
+        /* input:last-of-type{
+      padding-bottom: 0
+    } */
+
+        /* label
+     {
+      transform-origin: center; 
+      color: red;
+      font-weight: 100;
+      letter-spacing: 0.01em;
+      font-size: 17px;
+      box-sizing: border-box;
+      padding: 10px 15px;
+      display: block;
+      position: absolute;
+      margin-top: -40px;
+      z-index: 2;
+      pointer-events: none
+     } */
+
+
+        input:focus~label input:valid~label {
+            text-transform: uppercase;
+            font-style: italic
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="">
+        <fieldset style="border: 7px solid black; border-radius: 5%;">
+            <legend style="font-family: Blippo, fantasy; color: rgb(205, 20, 20); size: 100px;">RG</legend>
+            <p class="question">
+                <label>Nome:
+                    <input type="text" name="nome" id="nome" required />
+                </label>
+            </p>
+            <p>
+                <label>Genero
+                    <div class="custom-select" style="width:200px;">
+                        <select id="genero">
+                            <option value="masculino">masculino</option>
+                            <option value="feminino">feminino</option>
+                        </select>
+                    </div>
+                </label>
+            </p>
+            <p class="question">
+                <label>Nacionalidade:
+                    <input type="text" name="nacionalidade" id="nacionalidade" required />
+                </label>
+            </p>
+            <p class="question">
+                <label>Data de Nascimento:<br><br>
+                    <input type="date" name="data" id="data" required />
+                </label>
+            </p>
+            <p class="question">
+                <label>Data de Expedição:<br><br>
+                    <input type="date" name="dataE" id="dataE" required />
+                </label>
+            </p>
+            <p class="question">
+                <label>nome do pai:
+                    <input type="text" name="pai" id="pai" />
+                </label>
+            </p>
+            <p class="question">
+                <label>nome da mãe:
+                    <input type="text" name="mae" id="mae" />
+                </label>
+            </p>
+            <p>
+                <label>Estado:<br><br>
+                    <select id="estado" name="estado">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="EX">Estrangeiro</option>
+                    </select>
+            </p>
+            <p class="question">
+                <label>RG:
+                    <input type="text" name="rg" id="rg" />
+                </label>
+            </p>
+            <p class="question">
+                <label>CPF:
+                    <input type="text" name="cpf" id="cpf" />
+                </label>
+            </p>
+            <button type="submit" id="enviar">Enviar</button>
+        </fieldset>
+    </form>
+    <p id="resultado"></p>
+    <script>
+       document.getElementById("enviar").addEventListener("click", function(enviar){
+  enviar.preventDefault()
+
+  for (var j = 1; j <= 3; j++) {
+            var name = document.getElementById("nome"+j);
+            var genero = document.querySelector("genero"+j);
+            var nacionalidade = document.getElementById("nacionalidade"+j);
+            var dataN = document.getElementById("dataN"+j);
+            var dataE = document.getElementById("dataE"+j);
+            var pai = document.getElementById("pai"+j);
+            var mae = document.getElementById("mae"+j);
+            var estado = document.querySelector("estado"+j);
+            var rg = document.getElementById("rg"+j);
+            var cpf = document.getElementById("cpf"+j);    
+            
+            document.write("Azedinho e big monkey boy") 
+            document.getElementById("resultado").style.display = 'none'
+
+            let dataAtual = new Date();
+                let nascimentoDate = new Date(nascimento);
+                let diffMili = dataAtual - nascimentoDate;
+                let idade = diffMili / (1000 * 60 * 60 * 24 * 365);
+                console.log("idade: " + idade);
+                var carteira = "";
+                if (nascimento != "") {
+                    if (idade < 18) {
+                        carteira = "Você não pode tirar Carteira de Motorista.";
+                    } else {
+                        carteira = "Você pode tirar a carteira de motorista e tem " + idade.toFixed(0) + " anos.";
+                    }
+                } else {
+                    carteira = "Você não inseriu uma data de nascimento.";
+                }
+
+        
+        resultado += `<strong>Pessoa ${j}:</strong><br>
+                    Nome: ${nome}<br>
+                    Pai: ${pai}<br>
+                    Mãe: ${mae}<br>
+                    Naturalidade: ${nacionalidade}<br>
+                    Genero: ${genero}<br>
+                    Estado: ${estado}<br>
+                    RG: ${rg}<br>
+                    CPF: ${cpf}<br>
+                    Nascimento: ${dataN}<br>
+                    Data de Expedição: ${dataE}<br>
+                    ${carteira}<br><br>`;
+  }});
+
+    </script>
+</body>
+
+</html>
