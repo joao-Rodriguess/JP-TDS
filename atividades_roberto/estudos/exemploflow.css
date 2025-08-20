@@ -1,0 +1,33 @@
+.row-nowrap{
+    flex-flow: row nowrap; /* Linha sem quebra */
+}
+
+.column-nowrap{
+    flex-flow: column nowrap; /* Coluna com quebra */
+}
+
+.row-wrap{
+    flex-flow: row wrap; /* Linha com quebra */
+}
+
+.container{
+    max-width: 360px; /* Largura máxima de 360px */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: flex; /* Ativa o flexbox */
+    border: 1px solid #ccc; /* Borda cinza clara */
+}
+
+.item {
+    flex: 1; /* Ocupa espaço igual */
+    margin: 5px;
+    background: tomato; /* Fundo cinza claro */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+}
+
+h1{
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0 0 0; /* Margem superior e inferior de 20px */
+    font-size: 1.25em; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal da fonte */
+}

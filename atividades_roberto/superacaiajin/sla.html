@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa</title>
+</head>
+<body>
+    <h1>Pesquisa de Opinião</h1>
+    <p>Nessa pesquisa você será questionando sobre o produto X. Esse produto é vendido em todo o pais nas  perfumarias, lojas  de departamentos, inetrnet entre outros. Responda as questões abaixo de 
+    acordo com sua opinião</p>
+
+    <form>
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            <input type="text" name="nome" placeholder="Nome"><br><br>
+            <input type="number" name="idade" placeholder="Digite a sua idade"><br><br>
+            <input type="email" name="email" placeholder="Digite o seu email"><br><br>
+            <label>Data de nascimento:</label><br>
+            <input type="date" name="data" ><br><br><br>
+            <label>Digite uma senha para acessar os dados da pesquisa posteriormente:</label><br>
+            <input type="password" name="senha" placeholder="Digite uma senha">
+        </fieldset>
+        <fieldset>
+            <legend>Aspecto do produto</legend>
+            <label>Selecione a cor do produto após 6 meses de uso:</label><br>
+            <input type="color" name="cor" value="#00000"><br><br>
+            <label>Adicione uma foto do seu Produto:</label><br>
+            <input type="file" name="arquivo">
+        </fieldset>
+        <fieldset>
+            <legend>Opinião quanto a utilização</legend>
+            <label>Você gosta do cheiro do produto</label><br>
+            <input type="radio" name="gostar"> Gosto Muito <br>
+            <input type="radio" name="gostar"> Gosto <br>
+            <input type="radio" name="gostar"> Não Sei <br>
+            <input type="radio" name="gostar"> Não Gosto <br>
+            <input type="radio" name="gostar"> Odeio <br><br>
+
+            <label>Marque as caracteristicas do produto que mais gosta</label><br>
+            <input type="checkbox" name="caracteristicas"> fixação <br>
+            <input type="checkbox" name="caracteristicas"> textura <br>
+            <input type="checkbox" name="caracteristicas"> cheiro <br>
+            <input type="checkbox" name="caracteristicas"> cor <br>
+            <input type="checkbox" name="caracteristicas"> embalagem 
+        </fieldset>
+        <fieldset>
+            <legend>Nivel de satisfação</legend>
+            <label>Coloque nessa escala o seu nivel de satisfação geral do produto</label><br>
+            <input type="range" name="satisfacao" min="0" max="10">
+        </fieldset>
+        <fieldset>
+            <legend>Opiniões</legend>
+            <label>Digite abaixo sua opinião geral para esse produto</label><br>
+            <textarea></textarea>
+        </fieldset>
+        <br><br>
+
+        <input type="submit" name="Gravar" value="Gravar respostas">
+    </form>
+</body>
+</html>

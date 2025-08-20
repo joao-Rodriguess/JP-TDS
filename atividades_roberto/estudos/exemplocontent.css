@@ -1,0 +1,55 @@
+.flex-start {
+    justify-content: flex-start; /* Alinha os itens no início do container */
+}
+
+.flex-end {
+    justify-content: flex-end; /* Alinha os itens no final do container */
+}
+
+.center {
+    justify-content: center; /* Centraliza os itens no container */
+}
+
+.space-between {
+    justify-content: space-between; /* Espaça os itens uniformemente */
+}
+
+.space-around {
+    justify-content: space-around; /* Espaça os itens com espaço ao redor */
+}
+
+.container {
+    display: flex; /* Ativa o flexbox */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    margin: 0 auto; /* Remove margens padrão */
+    max-width: 430px; /* Largura máxima de 430px */
+}
+
+.column {
+   min-height: 200px; /* Altura mínima de 200px */
+    flex-direction: column; /* Direção da coluna */
+}
+
+.item{
+    margin: 5px; /* Margem de 5px */
+    background: tomato; /* Fundo vermelho tomate */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+    padding: 0 10px; /* Espaçamento interno */
+}
+
+.flex{
+    flex: 1; /* Ocupa espaço igual */
+}
+
+h1{
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0 0 0; /* Margem superior de 20px, sem margem nas outras direções */
+    font-size: 1.25em; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal da fonte */
+}
+
+body{
+    font-family: monospace; /* Fonte padrão */
+    background-color: rgb(255, 255, 255); /* Fundo cinza claro */
+}

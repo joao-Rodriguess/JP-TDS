@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+       
+
+        button {
+            margin-top: 20px;
+            background-color: white;
+            border: 1px solid rgb(0, 0, 0);
+            font-size: 17px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            color: white;
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    <h1>Clinica do mr.Jonh Black</h1><br>
+    <form id="paciente">
+        <label>Quantos exames?:<br>
+            <select id="exame" required>
+                <option value="0">0 exame</option>
+                <option value="1"> 1 exame</option>
+                <option value="2"> 2 exame</option>
+                <option value="3"> 3 exame</option>
+                <option value="4"> 4 exame</option>
+            </select>
+        </label>
+        <br><br>
+
+        <label>Escolha teu medico:<br>
+            <select id="medico" required>
+                <option value="L"> L (sim é o nome dele): neurologista</option>
+                <option value="Tsunade"> Tsunade: dentista</option>
+                <option value="Chopper"> Chopper: endocrinologista</option>
+            </select>
+        </label>
+        <br><br>
+
+
+        <label>Escolha teu convenio:<br>
+            <select id="convenio" required>
+                <option value="Sem Convenio">Sem convenio: 1000,00 R$</option>
+                <option value="Saude+"> Convenio Saude+: 300,00 R$</option>
+                <option value="Health"> Convenio Health: 600,00 R$</option>
+                <option value="T.V.T"> Convenio Tua vida meu trabalho: 250,00 R$</option>
+            </select>
+        </label>
+        <br><br>
+
+        <fieldset>
+            <legend>Formulario de cadastros</legend>
+            <label>Nome<br>
+                <input type="text" id="nome" required>
+            </label><br><br>
+            <label>Idade<br>
+                <input type="number" id="idade" required>
+            </label><br><br>
+            <label>Cidade<br>
+                <input type="text" id="cidade" required>
+            </label><br>
+
+            <button type="submit" id="enviar">Enviar</button>
+        </fieldset>
+    </form><br><br>
+   
+
+    <table id="tabela_Paciente" class="display table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th style="height: 20%;">#</th>
+                <th>Medico</th>
+                <th>convenio</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+        <div class="table-responsive" style="max-height: 500px;"> 
+        <tbody id="tabelaCorpo">
+        </tbody>
+    </div>
+
+        <tfoot>
+            <tr>
+                <td colspan="7" id="total_L">Total de valor para L: 0</td>
+            </tr>
+            <tr>
+                <td colspan="7" id="total_Tsunade">Total de valor para Tsunade: 0</td>
+            </tr>
+            <tr>
+                <td colspan="7" id="total_Chopper">Total de valor para Chopper: 0</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+         
+            var consulta_a = 1;
+            var consulta_b = 1;
+            var consulta_c = 1;
+            var total_a = 0;
+            var total_b = 0;
+            var total_c = 0;
+
+        document.getElementById("paciente").addEventListener("submit",function(e) {
+            e.preventDefault()
+           
+            if ((consulta_a && consulta_b && consulta_c) <= 8) {
+                var medico = document.getElementById("medico").value;
+                var convenio = document.getElementById("convenio").value;
+                var nome = document.getElementById("nome").value;
+                var idade = document.getElementById("idade").value;
+                var cidade = document.getElementById("cidade").value;
+                var exame = document.getElementById("exame").value;
+
+            if(medico === "L"){
+                if(consulta_a <= 8){
+                    var tabela = document.getElementById("tabelaCorpo")
+                    var preco = 0;
+                    if(convenio == "Saude+"){
+                        preco = 300;
+                        total_a += preco;
+                    }else if(convenio == "Health"){
+                        preco = 600;
+                        total_a += preco;
+                    }else if(convenio == "T.V.T"){
+                        preco = 250;
+                        total_a += preco
+                    }else{
+                        preco = 1000
+                        total_a += preco
+                    }
+
+                    var novalinha = ` 
+                   <tr>
+                    <td>${consulta_a} de ${medico}</td>
+                    <td>${medico}</td>
+                    <td>${convenio}</td>
+                    <td>${nome}</td>
+                    <td>${idade}</td>
+                    <td>${cidade}</td>
+                    <td>${preco}</td>
+                    </tr>
+                    `;
+
+                tabela.innerHTML += novalinha;
+                consulta_a++;
+                document.getElementById("total_L").textContent = `Total de valor para L: ${total_a}`;
+                   
+                }else{
+                    alert("O L não pode atender mais")
+                }
+            }
+
+                if(medico === "Tsunade"){
+                if(consulta_b <= 8){
+                    var tabela = document.getElementById("tabelaCorpo")
+                    var preco = 0;
+                    if(convenio == "Saude+"){
+                        preco = 300;
+                        total_b += preco;
+                    }else if(convenio == "Health"){
+                        preco = 600;
+                        total_b += preco;
+                    }else if(convenio == "T.V.T"){
+                        preco = 250;
+                        total_b += preco
+                    }else{
+                        preco = 1000
+                        total_b += preco
+                    }
+
+                    var novalinha = `  
+                   <tr>
+                    <td>${consulta_b} de ${medico}</td>
+                    <td>${medico}</td>
+                    <td>${convenio}</td>
+                    <td>${nome}</td>
+                    <td>${idade}</td>
+                    <td>${cidade}</td>
+                    <td>${preco}</td>
+                    </tr>
+                    `;
+
+                tabela.innerHTML += novalinha;
+                consulta_b++;
+                document.getElementById("total_Tsunade").textContent = `Total de valor para Tsunade: ${total_b}`;
+                   
+                }else{
+                    alert("A Tsunade não pode atender mais")
+                }
+            }
+
+
+                if(medico === "Chopper"){
+                if(consulta_c <= 8){
+                    var tabela = document.getElementById("tabelaCorpo")
+                    var preco = 0;
+                    if(convenio == "Saude+"){
+                        preco = 300;
+                        total_c += preco;
+                    }else if(convenio == "Health"){
+                        preco = 600;
+                        total_c += preco;
+                    }else if(convenio == "T.V.T"){
+                        preco = 250;
+                        total_c += preco    
+                    }else{
+                        preco = 1000
+                        total_c += preco    
+                    }
+
+                    var novalinha = `  
+                   <tr>
+                    <td>${consulta_c}  de ${medico}</td>
+                    <td>${medico}</td>
+                    <td>${convenio}</td>
+                    <td>${nome}</td>
+                    <td>${idade}</td>
+                    <td>${cidade}</td>
+                    <td>${preco}</td>
+                    </tr>
+                    `;
+
+                tabela.innerHTML += novalinha;
+                consulta_c++;
+                document.getElementById("total_Chopper").textContent = `Total de valor para Chopper: ${total_c}`;
+                   
+                }else{
+                    alert("O Chopper não pode atender mais")
+                }
+            }
+            }else{
+                alert("Numero de consulta dos tres medico excedidos")
+            }
+        }
+        )
+    </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

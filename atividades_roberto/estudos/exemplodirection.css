@@ -1,0 +1,47 @@
+/* Define fonte e cor padrão para o corpo da página */
+body {
+    font-family: monospace; /* Usa fonte monoespaçada */
+    color: #333; /* Cor do texto */
+}
+
+/* Estiliza os títulos h1 */
+h1 {
+    text-align: center; /* Centraliza o texto */
+    margin:  20px 0 0 0; /* Margem superior de 20px, sem margem nas outras direções */
+    font-size: 1.25em; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal da fonte */
+}
+
+/* Estiliza o container flex */
+.container {
+     max-width: 400px; /* Largura máxima de 400px */
+     margin: 0 auto; /* Centraliza horizontalmente */
+     border: 1px solid #cccccc; /* Borda cinza clara */
+     display: flex; /* Ativa o flexbox */
+}
+
+/* Estiliza cada item dentro do container */
+.item {
+    margin: 5px; /* Espaçamento externo de 5px */
+    background: tomato; /* Fundo vermelho tomate */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+    flex: 1; /* Faz os itens ocuparem espaço igual */
+}
+
+/* Direções do flexbox */
+.row {
+    flex-direction: row; /* Direção padrão: linha */
+}
+
+.row-reverse {
+    flex-direction: row-reverse; /* Inverte a ordem dos itens na linha */
+}
+
+.column {
+    flex-direction: column; /* Direção vertical */
+}
+
+.column-reverse {
+    flex-direction: column-reverse; /* Inverte a ordem dos itens na coluna */
+}

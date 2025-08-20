@@ -1,0 +1,67 @@
+/* Define fonte e cor padrão para o corpo da página */
+body {
+    font-family: monospace; /* Usa fonte monoespaçada */
+    color: #333; /* Cor do texto */
+    background: #f7f7f7; /* Fundo suave */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estiliza os títulos h1 */
+h1 {
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0 0 0; /* Margem superior de 20px, sem margem nas outras direções */
+    font-size: 1.25em; /* Tamanho da fonte */
+    font-weight: normal; /* Peso normal da fonte */
+}
+
+/* Estiliza o container flex */
+.container {
+    max-width: 400px; /* Largura máxima de 400px */
+    margin: 0 auto ; /* Centraliza horizontalmente e espaça abaixo */
+    border: 1px solid #cccccc; /* Borda cinza clara */
+    display: flex; /* Ativa o flexbox */
+    gap: 10px; /* Espaço entre os itens */
+    padding: 10px; /* Espaçamento interno */
+    background: #fff; /* Fundo branco */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra leve */
+}
+
+/* Estiliza cada item dentro do container */
+.item {
+    min-width: 120px; /* Largura mínima para demonstrar o wrap */
+    background: tomato; /* Fundo vermelho tomate */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+    flex: 1; /* Ocupa espaço igual */
+    padding: 20px 0; /* Espaçamento interno */
+    border-radius: 6px; /* Cantos arredondados */
+    color: #fff; /* Texto branco */
+    font-weight: bold; /* Negrito */
+}
+
+/* Flex-wrap propriedades */
+.nowrap {
+    flex-wrap: nowrap; /* Não permite quebra de linha */
+}
+
+.wrap {
+    flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+.wrap-reverse {
+    flex-wrap: wrap-reverse; /* Quebra de linha invertida */
+}
+
+.inherit {
+    flex-wrap: inherit; /* Herda do elemento pai */
+}
+
+.initial {
+    flex-wrap: initial; /* Valor inicial padrão */
+}
+
+.unset {
+    flex-wrap: unset; /* Remove qualquer valor definido */
+}

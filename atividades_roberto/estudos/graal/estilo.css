@@ -1,0 +1,69 @@
+.titulo{
+    text-align: center;
+    font-family: serif;
+    text-decoration: underline; /* Sublinha o texto */
+}
+
+body {
+    font-family: monospace;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    height: 100vh;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0 0 0;
+    font-weight: normal;
+    color: black;
+}
+
+.container {
+    display: flex; /* Ativa o flexbox */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    width: 100%; /* Largura máxima de 430px */
+
+}
+
+.container header {
+    width: 100%;
+    text-align: center;
+    background-color: orangered;
+}
+
+.container footer {
+    width: 100%;
+    text-align: center;
+    background-color: deeppink;
+}
+
+.stretch{
+    align-items: stretch;
+}
+
+.item#left {
+    order: 1; /* Sidebar esquerda primeiro */
+    background-color: dodgerblue;
+}
+
+.item#main {
+    order: 2; /* Conteúdo principal segundo */
+    background-color: darkblue;
+    width: 3900px;
+}
+
+.item#right {
+    order: 3; /* Sidebar direita terceiro */
+    background-color: forestgreen;
+}
+
+.item{
+    height: 800px; /* Altura de 100px */      
+    width: 100%; /* Largura total do item */
+    background: tomato; /* Fundo vermelho tomate */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+    padding: 5px 5px; /* Espaçamento interno */
+}

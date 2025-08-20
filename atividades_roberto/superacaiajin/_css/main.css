@@ -1,0 +1,70 @@
+
+
+img{
+    width: 200px;
+    height: 150px;
+}
+
+tr,td{
+            border: 5px solid rgb(255, 251, 192);
+            background-color: rgb(202, 202, 202);
+        }
+
+#table{
+    border-radius: 15px;
+    border:5px solid rgb(255, 251, 192);
+    margin: auto;
+}
+
+th{
+    background-color: darkred;
+    border: 5px solid rgb(255, 251, 192);
+    color: white;
+}
+
+body{
+    background: url(/_imagens/Daco_4253641.png) no-repeat fixed ;
+    background-size: 75% 75%;
+    background-color: purple;
+    background-position: 200% 20%;
+}
+
+h1 {
+    color: #DAA520;
+    background-color: #8B008B;
+    font-family: cursive;
+    border-style: dotted;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+fieldset{
+    border: 5px solid goldenrod;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+}
+
+legend{
+    font-weight: bold;
+}
+
+input{
+   height: 30px;
+    border: 1px;
+    text-align: left;
+    width: 900px;
+    padding: 2px;
+    border-radius: 2px;
+    margin-top: 4px;
+    border-color: black;
+}
+
+select{
+    height: 30px;
+    width: 700px;
+    padding: 2px;
+    border-radius: 2px;
+}
+
