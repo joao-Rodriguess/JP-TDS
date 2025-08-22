@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculadora</title>
+</head>
+<body>
+    <script>
+     var quer_calcular = confirm("Olá, vamos fazer operações????");
+if(quer_calcular == true){
+        var num1 = prompt("Digite o primeiro numero")
+        var num2 = prompt("Digite o segundo numero")
+
+        num1 = parseInt(num1)
+        num2 = parseInt(num2)
+
+        var operacao = ""
+         alert(operacao += prompt("Escolha uma operação: + - / *?"));
+
+        
+        switch (operacao) {
+            case "+":
+                var soma = num1 + num2
+                document.write("<p> A soma: "+soma+" &#129488</p>")
+                break;
+
+            case "-":
+                var subtracao = num1 + num2
+                document.write("<p> A subtracação: "+subtracao+" &#129488</p>")
+                break;
+            case "/":
+                var divicao = num1/num2
+                document.write("<p> A divisão: "+divicao+" &#129488</p>")
+                break;
+            case "*":
+                var multiplicacao = num1 * num2
+                document.write("<p> A multiplicação: "+multiplicacao+" &#129488</p>")
+                break;
+            default:
+                alert("Voce não digitou ou nao escreveu uma operação valida ):")
+                break;
+        }
+}else{
+    alert("Não quer fazer o peração??? OK então viu ):")
+    document.write("<h1>CHATO &#128530</h1>")
+}
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculo de idade</title>
+</head>
+<body>
+    <script>
+        let anoat = parseInt(prompt("Coloque o ano atual"));
+        let anovel = parseInt(prompt("Coloque o ano de nascimento da pessoa mais velha"));
+        let anonovo = parseInt(prompt("Coloque o ano de nascimento da pessoa mais nova"));
+
+        let idadeV = anoat - anovel;
+        let idadeN = anoat - anonovo;
+        let diferenca = idadeV - idadeN;
+
+        document.write("A idade do mais velho é: ", idadeV, "<br><br>");
+        document.write("A idade do mais novo é: ", idadeN, "<br><br>");
+        document.write("A diferença de idade é: ", diferenca);
+        
+
+
+    </script>
+</body>
+</html>

@@ -2,76 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testes de Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World JavaScript</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css" media="screen" type="text/css">
-    <script src="script.js"></script>
-    <style>
-        
-
-        #titulo{
-            color: blue;
-            font-size: 32px;
-            font-family: Arial;
-            font-weight: bolder;
-            text-decoration: underline;
-        }
-
-        #confirma{
-            background-color: green;
-            color: white;
-        }
-
-        #cancela{
-            background-color: red;
-            color: white;
-        }
-
-        #limpa{
-            background-color: yellow;
-            color: black;
-        }
-
-        button{
-            height: 30px;
-            width: 50%;
-            border-radius: 5px;
-        }
-
-        #titulo_pag{
-            font-family:Roboto;
-            justify-content: center;
-            text-align: center;
-            border: 5px solid rgb(145, 81, 218);
-            font-size: 48px;
-        }
-
-        img{
-            width: 50%;
-            height: 300px;
-        }
-    </style>
 </head>
 <body>
-    <div>
-        <p id="titulo">Exercicio 04</p>
-    </div>
-
-    <div>
-        <button id="confirma" onclick="alert('Você Confirmou!!!')">Confirma</button>
-        <button id="cancela" onclick="alert('Você Cancelou!!!')">Cancela</button>
-        <button id="limpa" onclick="alert('Você Limpou!!!')">Limpa</button>
-    </div>
-
-    <div>
-        <script>"<p>"+document.title+"</p>"</script>
-    </div>
-
-    <div>
-       <p id="titulo_pag">Teste Javascript<br><img id="imagem"  alt="Lampada" onclick="alert('Você clicou na logo do JS, com fundo amarelo!')" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg"></p>
-    </div>
-
-     <h2>Vamos Fazer um Print???</h2>
-        <button onclick="window.print()">Imprimir esta página</button>
-    </body>
+    <script>
+        document.write("<h1>"+document.title+"</h1>");
+    </script>
+</body>
 </html>
