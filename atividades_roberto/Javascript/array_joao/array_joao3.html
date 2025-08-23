@@ -13,12 +13,16 @@
 
         array[7] = ['Gustavo']
 
-     array_definitivo = ["","",""]
+     array_definitivo = []
      array_soma = []
         for(i = 0; i < array.length; i++){
-        array_soma += array[i]
+            if(i === array.length){
+                array_soma += array_definitivo = ["["+array[i]+"]"]
+            }else{
+                array_soma += array_definitivo = ["["+array[i]+"], "]
+            }
         }
-array_definitivo = array_soma
+    array_definitivo = array_soma
     console.log(array_definitivo)
     </script>
 </body>

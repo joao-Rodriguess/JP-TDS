@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função</title>
+</head>
+<body>
+    <script>
+        
+        function calculadora(num1,num2,operacao){
+            if(operacao === "+" || operacao === "-" || operacao === "/" || operacao === "*"){
+                conta = num1+operacao+num2
+                alert("Tua operação teve o resultado de: "+conta)
+            }
+            
+            if(operacao === "outros"){
+                alert(operacao =  prompt("Escolha um operação \n [%] \n [M] \n [^] \n [R] "))
+                if(operacao === "%"){
+                    alert("Tua operaçao vai ser 25,2% da soma")
+                    conta = num1+num2
+                    porcentagem = (conta*25.2)/100
+                    alert("Tua operação teve o resultado de: "+porcentagem)
+
+                }else if(operacao === "M"){
+                    conta = (num1+num2)/2
+                    alert("Tua operação teve o resultado de: "+conta)
+
+                }else if(operacao === "^"){
+                    alert("Tua operaçao vai ser o quadrado da soma")
+                    conta = num1+num2
+                    exponenciacao = conta^2
+                    alert("Tua operação teve o resultado de: "+exponenciacao)
+                    
+                }else if(operacao === "R"){
+                    alert("Tua operaçao vai ser a raiz da soma")
+                    conta = num1+num2
+                    raiz = Math.sqrt(conta)
+                    alert("Tua operação teve o resutado de: "+raiz)
+                }
+            }
+        }
+
+
+
+        var num1 = prompt("Digite o primeiro numero")
+        var num2 = prompt("Digite o segundo numero")
+        let operacao = ""
+        alert(operacao +=  prompt("Escolha um operação \n [+]: Faça a soma dos numeros \n [-]: Faça subtração dos numeros \n [/]: Faça divisão dos numeros \n [*]: Faça multiplicação dos numeros \n [outros]: selecione outras operações"))
+        num1 = Number(num1)
+        num2 = Number(num2)
+
+        console.log(operacao)
+
+    if(operacao != ""){
+        console.log("caiu aqui")
+        var resultado = calculadora(num1,num2,operacao)
+        console.log("conta bem sucedida "+ resultado)
+
+    }else{
+        alert("Selecione uma operação POR FAVORRRRRRRRRRRRRRR")
+    }
+    </script>
+</body>
+</html>

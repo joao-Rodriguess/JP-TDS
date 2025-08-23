@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="submitButton" type="submit">Calcular Soma</button>
+    <script>
+        /*function verifica(age){
+            if(age >= 18){
+                return true
+            }else{
+                return confirm("Você tem permissão dos seus parentes para beber?")
+            }
+        }
+
+        let age = prompt("Você tem mais  de 18 anos???")
+
+        if(verifica(age)){
+            alert("pode comprar tá permitido");
+        }else{
+            alert("compra negada")
+        }*/
+
+        /*function cumprimentarUsuario(nome){
+            return "Olá, "+nome+ "!"
+        }
+
+        var nomeUsuario = prompt("Qual o seu nome");
+        var saudacao = cumprimentarUsuario(nomeUsuario)
+        document.write(saudacao)*/
+
+        function sumNumbers(){
+            let num1 = prompt("Digite o primeiro numero:")
+            let num2 = prompt("Digite o segundo numero!")
+        
+
+        let sum = Number(num1) + Number(num2)
+
+        document.write("A soma dos nuemros è: "+sum)
+        }
+        document.getElementById("submitButton").addEventListener("click",function(){
+            sumNumbers()
+        })
+
+    </script>
+</body>
+</html>
