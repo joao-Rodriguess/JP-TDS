@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicando o DOM</title>
+    <style>
+        body{
+            font-family: arial;
+            font-size: 24px;
+             text-align: center;
+        }
+
+        p{
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .dark-mode{
+            background-color: black;
+            color: white;
+         }
+
+        .light-mode{
+            background-color: white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="meuParagrafo">Este é o meu paragrafo 1</p>
+
+    <button id="meuBotao" onclick="mudarTexto()">Clique aqui!!!</button>
+
+
+    <input type="text" class="valor">
+
+    <button id="meuBotao2" onclick="queroVervalor()">Clique para ver</button>
+
+    <p id="mensagem"></p>
+
+    <button id="meuBotao3" onclick="adicionarTexto()">Adicione Texto</button>
+
+    <button id="meuBotao4" onclick="adicionarParagrafo()">Adicione Paragrafo</button>
+
+    <h3 id="preto">Tema Escuro ou Claro</h3>
+    <button onclick="darkMode()">Dark Mode</button>
+    <button onclick="Lightmode()">Light Mode</button>
+
+
+
+
+    <script>
+         function mudarTexto(){
+            var ps = document.getElementsByClassName("meuParagrafo");
+            
+                for( var i = 0; i < ps.length; i++){
+                    ps[i].textContent = "Este é o meu paragrafo "+(i+1)+" Novo"
+                }
+            }
+
+        
+          function queroVervalor(){
+            var input = document.getElementsByClassName("valor")[0]
+            var mensagem = document.getElementById("mensagem")
+
+            mensagem.textContent = "Ola aqui esta o primeiro valor do teu input: "+ input.value
+          }
+
+          function adicionarTexto(){
+             var text = document.createTextNode("Este é um novo texto!!!")
+
+            document.body.appendChild(text)
+          }
+
+          function adicionarParagrafo(){
+            var p = document.createElement("p");
+
+            p.textContent = "Este é um novo Parágrafo!";
+
+            document.body.appendChild(p)
+          }
+
+          function darkMode(){
+             let element = document.body
+            element.className = "dark-mode";
+          }
+
+           function Lightmode(){
+             let element = document.body
+            element.className = "light-mode";
+          }
+
+    </script>
+</body>
+</html>

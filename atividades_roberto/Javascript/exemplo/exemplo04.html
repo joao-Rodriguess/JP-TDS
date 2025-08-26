@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .minhaClasse{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p class="minhaClasse">Este é o meu parágrafo</p>
+    <button id="meuBotao" onclick="mudarCor()">Mudar a cor</button>
+    
+
+    <script>
+        var cores = ["red", "green","yellow","pink","gray","blue"];
+        var indiceCor = 0;
+
+
+        function mudarCor(){
+           var p = document.querySelector(".minhaClasse");
+
+           p.style.color = cores[indiceCor];
+
+           indiceCor = (indiceCor + 1) % cores.length;
+        }
+    </script>
+</body>
+</html>
