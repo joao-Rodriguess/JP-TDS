@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicando o DOM</title>
+    <style>
+        .listraon{
+            background-color: darkgreen;
+            border: 2px solid black;
+        }
+
+        table{
+             font-family: arial;
+            font-size: 24px;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var listras = document.querySelectorAll(".listras tbody tr");
+            for(var i = 0; i < listras.length; i+=2){
+                listras[i].className = "listraon";
+            }
+        }
+    </script>
+</head>
+<body>
+    <table class="listras">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Nota</th>
+                <th>Falta</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Manoel</td>
+                <td>7.00</td>
+                <td>23</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Gustavo</td>
+                <td>8.00</td>
+                <td>1</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Joaquim</td>
+                <td>1.00</td>
+                <td>0</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Pietra</td>
+                <td>2.00</td>
+                <td>0</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Nahyron</td>
+                <td>0.00</td>
+                <td>100</td>
+                <td>Aprovado</td>
+            </tr>
+            <tr>
+                <td>Robertin</td>
+                <td>1000000000.00</td>
+                <td>0</td>
+                <td>Reprovado</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

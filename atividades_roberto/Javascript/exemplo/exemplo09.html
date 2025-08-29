@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page title</title>
+
+    <style>
+        #scrollBox {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body onscroll="myFunction()">
+    <div style="height: 2000px; width: 2000px; background-color: lightblue;">
+        Role para baixo e para a direita
+    </div>
+
+    <div id="scrollBox"></div>
+    <script>
+        function myFunction() {
+            document.getElementById("scrollBox").innerHTML = "Posição de rolagem horizontal: " + window.scrollX + "<br>Posição de rolagem vertical: " + window.scrollY;
+        }
+    </script>
+    
+</body>
+</html>
