@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv" style="width: 100px; height: 100px; background-color: lightblue;" >
+        Passe o mouse sobre este elemento
+    </div>
+    <script>
+        let myDiv = document.getElementById("myDiv");
+        myDiv.onmouseover = function(){
+            myDiv.style.background = "red";
+        }
+
+        myDiv.onmouseout = function(){
+            myDiv.style.background = "lightblue"
+        }
+    </script>
+</body>
+</html>

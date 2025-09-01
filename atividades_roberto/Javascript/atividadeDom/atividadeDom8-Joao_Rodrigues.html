@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterando Parágrafo e mudando cor
+(DOM)</title>
+    <style>
+        body{
+            display: flex;
+            font-family: arial;
+            font-size: 24px;
+            align-items: left;
+            flex-direction: column;
+        }
+
+        button{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <p id="myP">Passe o mouse sobre este parágrafo</p>
+
+    <button id="button">Aperte aqui para mudar o conteudo</button>
+
+    <button id="button2">Aperte aqui para mudar a cor da fonte</button>
+    <script>
+        let myP = document.getElementById("myP");
+        let button = document.getElementById("button");
+
+        button.onclick = function(){
+            myP.innerHTML = "<br> Você passou o mouse sobre o paragrafo"
+        }
+
+        myP.onmousemove = function(){
+            myP.innerHTML = "Passe o mouse sobre este parágrafo"
+        }
+    
+        let myDiv = document.getElementById("myDiv");
+
+        button2.onclick = function(){
+            myP.style.color = "red";
+        }
+
+        myP.onmouseout = function(){
+            myP.style.color = "lightblue"
+        }
+    </script>
+</body>
+</html>

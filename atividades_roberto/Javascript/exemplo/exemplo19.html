@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-container{
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container img {
+             transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img{
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="http://cm1.narvii.com/7220/93f9aacf2cb432ed309b93ba677313df0db9a365_00.jpg" alt="Imagem" onmouseover="zoomIn(this)"
+        onmouseout="zoomOut(this)">
+    </div>
+</body>
+</html>

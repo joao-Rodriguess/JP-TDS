@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página com Scroll</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    #principal {
+      padding: 20px;
+      background-color: lightblue;
+      min-height: 3000px; /* Garante rolagem */
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .scrollBox {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      border: 1px solid black;
+      padding: 10px;
+      width: 220px;
+      font-size: 14px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+
+    #demo {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="principal">
+    <h2>Clique no botão para exibir informações da página</h2>
+
+    <div class="container">
+      <button onclick="mostrar()">Mostrar mais detalhes</button>
+      <button onclick="atualizar()">Atualizar as informações</button>
+    </div>
+
+    <p id="demo"></p>
+  </div>
+
+  <div id="scrollBox" class="scrollBox">
+    Clique em mais detalhes para ver a rolagem!!!
+  </div>
+
+  <script>
+    // Adiciona evento de scroll ao navegador
+    
+
+    // Exibe informações da janela
+    function mostrarInformacoes() {
+      document.getElementById("demo").innerHTML =
+        "JOÃO PEDRO RODRIGUES DA SILVA<br>" +
+        "Largura interna da janela: " + window.innerWidth + "px<br>" +
+        "Altura interna da janela: " + window.innerHeight + "px";
+    }
+
+    // Controle de estado
+    let contador = 0;
+
+    function mostrar() {
+      if (contador === 0) {
+        mostrarInformacoes();
+        contador = 1;
+        window.addEventListener('scroll', atualizarScroll);
+    // Atualiza a div scrollBox com as posições do scroll
+    function atualizarScroll() {
+        document.getElementById("scrollBox").innerHTML =
+        "Posição de rolagem horizontal: " + window.scrollX + "<br>" +
+        "Posição de rolagem vertical: " + window.scrollY;
+    }
+      }
+    }
+
+    function atualizar() {
+      if (contador !== 0) {
+        mostrarInformacoes();
+      }
+    }
+  </script>
+</body>
+</html>

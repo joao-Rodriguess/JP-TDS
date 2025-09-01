@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="myP">Passe o mouse sobre este parágrafo</p>
+    <p id="output"></p>
+    <script>
+        let myP = document.getElementById("myP");
+        let output = document.getElementById("output");
+
+        myP.onmouseover = function(){
+            output.innerHTML = "<br> Você passou o mouse sobre o paragrafo"
+        }
+
+        myP.onmouseout = function(){
+            output.innerHTML = " "
+        }
+    </script>
+</body>
+</html>
