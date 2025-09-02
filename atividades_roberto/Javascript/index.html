@@ -6,6 +6,12 @@
     <title>Document</title>
     <style>
 
+        .botoes{
+            display: flex;
+            flex-direction: row;
+        }
+
+
         body{
             display: flex;
             justify-content: center;
@@ -48,10 +54,24 @@
 <button id="vejaC">Veja o coelho</button>
 </div>
 
+<div id="botoes">
 <div class="image-container">
     <div id="img" class="img">
-        
+        <img src='https://5.imimg.com/data5/SELLER/Default/2023/12/372328161/LT/KH/TR/46616126/tom-jerry-wooden-fridge-magnet-500x500.jpeg' alt='Imagem' onmouseover='zoomIn(this)'onmouseout='zoomOut(this)'>
     </div>
+</div>
+
+<div class="image-container">
+    <div id="img" class="img">
+        <img src='https://www.desenhar.org/wp-content/uploads/2023/03/desenhando-Tweety-passo10.jpg' alt='Imagem' onmouseover='zoomIn(this)'onmouseout='zoomOut(this)'>
+    </div>
+</div>
+
+<div class="image-container">
+    <div id="img" class="img">
+        <img src='https://www.desenhar.org/wp-content/uploads/2023/03/Desenhando-o-Pernalonga-passo12.jpg' alt='Imagem' onmouseover='zoomIn(this)'onmouseout='zoomOut(this)'>
+    </div>
+</div>
 </div>
 
 <script>
@@ -60,7 +80,7 @@
     let vejaG = document.getElementById("vejaG")
     let vejaC = document.getElementById("vejaC")
 
-    vejaG.onclick = function(){
+    /*vejaG.onclick = function(){
         img.innerHTML = "<img src='https://5.imimg.com/data5/SELLER/Default/2023/12/372328161/LT/KH/TR/46616126/tom-jerry-wooden-fridge-magnet-500x500.jpeg' alt='Imagem' onmouseover='zoomIn(this)'onmouseout='zoomOut(this)'>"
     }
 
@@ -70,7 +90,7 @@
 
     vejaC.onclick = function(){
         img.innerHTML = "<img src='https://www.desenhar.org/wp-content/uploads/2023/03/Desenhando-o-Pernalonga-passo12.jpg' alt='Imagem' onmouseover='zoomIn(this)'onmouseout='zoomOut(this)'>"
-    }
+    }*/
 
 
 </script>
